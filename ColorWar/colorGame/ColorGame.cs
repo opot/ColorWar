@@ -32,7 +32,7 @@ namespace ColorWar.colorGame {
 
 			graphics.PreferredBackBufferHeight = HEIGHT;
 			graphics.PreferredBackBufferWidth = WIDTH;
-			graphics.ToggleFullScreen();
+			//graphics.ToggleFullScreen();
 			states = new List<GameState>();
 
 			states.Add(new MainMenuState());

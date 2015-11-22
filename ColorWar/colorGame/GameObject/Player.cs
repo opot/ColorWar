@@ -19,6 +19,8 @@ namespace ColorWar.colorGame.GameObject {
 		float dx = 0, dy = 0;
 		float dSpeed = 416;
 
+		int[] Resources = {0, 0, 0, 0};
+
 		Controller.Controller control;
 
 		public Player(int x, int y, Texture2D texture, Controller.Controller control, Color color) {
@@ -57,14 +59,19 @@ namespace ColorWar.colorGame.GameObject {
 						if (x < GamePlayState.size - 1 && GamePlayState.tiles[x + 1, y].canStep())
 							ddx = 1;
 
+				GamePlayState.tiles[x, y].setPlayerHere(false);
 				x += ddx;
 				y += ddy;
+				GamePlayState.tiles[x, y].setPlayerHere(true);
 				dx += -ddx * (ColorGame.HEIGHT - ColorGame.InterfaceHeight)/GamePlayState.size;
 				dy += -ddy * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / GamePlayState.size;
 
 				if (ddx != 0 || ddy!= 0) {
 					sprite.AnimActive = true;
 					GamePlayState.tiles[x, y].changeColor(color);
+					TileObject resource = GamePlayState.tiles[x, y].getResource();
+					if (resource != null)
+						Resources[(int)(resource.type)]++;
 				}
 
 

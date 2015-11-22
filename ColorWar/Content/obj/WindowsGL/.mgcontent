@@ -10,5 +10,11 @@
     <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/Font/SpriteFont.spritefont</File>
     <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/wall.png</File>
     <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/floor.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/buildings/door.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/buildings/build.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/resource/gold.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/resource/iron.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/resource/stone.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/resource/wood.png</File>
   </SourceFiles>
 </SourceFileCollection>

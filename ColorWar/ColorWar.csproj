@@ -46,10 +46,17 @@
     <Compile Include="colorGame\GameObject\LabirinthGenerator.cs" />
     <Compile Include="colorGame\GameObject\Player.cs" />
     <Compile Include="colorGame\GameObject\Tile.cs" />
+    <Compile Include="colorGame\GameObject\TileBuilding\Bomb.cs" />
+    <Compile Include="colorGame\GameObject\TileBuilding\Door.cs" />
     <Compile Include="colorGame\GameObject\TileObject.cs" />
+    <Compile Include="colorGame\GameObject\TileResourse\Gold.cs" />
+    <Compile Include="colorGame\GameObject\TileResourse\Iron.cs" />
+    <Compile Include="colorGame\GameObject\TileResourse\Stone.cs" />
+    <Compile Include="colorGame\GameObject\TileResourse\Wood.cs" />
     <Compile Include="colorGame\GameStates\GamePlayState.cs" />
     <Compile Include="colorGame\GameStates\GameState.cs" />
     <Compile Include="colorGame\GameStates\MainMenuState.cs" />
+    <Compile Include="colorGame\ResourceGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -69,6 +76,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
+  <ItemGroup />
   <!-- Specify the search path explicitly so the ResolveAssemblyReferences task picks the right ones -->
   <Target Name="BeforeResolveReferences">
     <CreateProperty Value="$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows;$(AssemblySearchPaths)">

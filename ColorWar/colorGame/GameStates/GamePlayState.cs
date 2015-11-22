@@ -15,13 +15,15 @@ namespace ColorWar.colorGame.GameStates {
 		Texture2D wallTex, floorTex, redPlayerTex, bluePlayerTex;
 
 		Player redPlayer, bluePlayer;
+		ResourceGenerator ResGen;
 
 		public override void init(ColorGame game) {
 			floorTex = game.Content.Load<Texture2D>("texture/game/floor");
 			wallTex = game.Content.Load<Texture2D>("texture/game/wall");
 			redPlayerTex = game.Content.Load<Texture2D>("texture/game/RedPlayer");
 			bluePlayerTex = game.Content.Load<Texture2D>("texture/game/BluePlayer");
-		}
+			ResGen = new ResourceGenerator(game.Content);
+        }
 
 		public override void enter() {
 			tiles = new Tile[size, size];
@@ -51,6 +53,7 @@ namespace ColorWar.colorGame.GameStates {
         }
 
 		public override void update(float delta, ColorGame game) {
+			ResGen.update(delta);
 			redPlayer.update(delta);
 			bluePlayer.update(delta);
 		}
