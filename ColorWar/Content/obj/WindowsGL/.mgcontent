@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>WindowsGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/menu/back.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/BluePlayer.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/RedPlayer.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/Font/SpriteFont.spritefont</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/wall.png</File>
+    <File>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/floor.png</File>
+  </SourceFiles>
+</SourceFileCollection>
