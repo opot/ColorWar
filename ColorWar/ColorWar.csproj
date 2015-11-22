@@ -43,6 +43,7 @@
     <Compile Include="colorGame\GameObject\Controller\Controller.cs" />
     <Compile Include="colorGame\GameObject\Controller\GamePadController.cs" />
     <Compile Include="colorGame\GameObject\Controller\KeyBoardController.cs" />
+    <Compile Include="colorGame\GameObject\GameInterface.cs" />
     <Compile Include="colorGame\GameObject\LabirinthGenerator.cs" />
     <Compile Include="colorGame\GameObject\Player.cs" />
     <Compile Include="colorGame\GameObject\Tile.cs" />

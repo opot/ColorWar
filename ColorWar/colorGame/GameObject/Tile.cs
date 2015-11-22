@@ -15,7 +15,7 @@ namespace ColorWar.colorGame.GameObject {
 		private Texture2D texture;
 		private Rectangle rect;
 
-		bool isWall;
+		public bool isWall;
 		bool playerHere = false;
 
 		TileObject here = null;
@@ -35,6 +35,10 @@ namespace ColorWar.colorGame.GameObject {
 
 		public void changeColor(Color color) {
 			this.color = color;
+		}
+
+		public Color getColor() {
+			return color;
 		}
 
 		public void setPlayerHere(bool isHere) {

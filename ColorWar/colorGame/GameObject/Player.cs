@@ -19,12 +19,15 @@ namespace ColorWar.colorGame.GameObject {
 		float dx = 0, dy = 0;
 		float dSpeed = 416;
 
-		int[] Resources = {0, 0, 0, 0};
+		public int[] Resources = {0, 0, 0, 0};
+		Counter myCounter;
+		Counter enemyCounter;
+	   Controller.Controller control;
 
-		Controller.Controller control;
-
-		public Player(int x, int y, Texture2D texture, Controller.Controller control, Color color) {
+		public Player(int x, int y, Texture2D texture, Controller.Controller control, Color color, Counter myCounter, Counter enemyCounter) {
 			this.control = control;
+			this.myCounter = myCounter;
+			this.enemyCounter = enemyCounter;
 			this.color = color;
 			sprite = new AnimatedSprite(texture, 26, 26, 0.06f);
 			sprite.AnimActive = false;
@@ -68,6 +71,11 @@ namespace ColorWar.colorGame.GameObject {
 
 				if (ddx != 0 || ddy!= 0) {
 					sprite.AnimActive = true;
+					if(GamePlayState.tiles[x, y].getColor() != color) {
+						myCounter.inc();
+						if (GamePlayState.tiles[x, y].getColor() != Color.Gray)
+							enemyCounter.dec();
+                    }
 					GamePlayState.tiles[x, y].changeColor(color);
 					TileObject resource = GamePlayState.tiles[x, y].getResource();
 					if (resource != null)

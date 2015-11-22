@@ -17,3 +17,5 @@ C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\resource\iron.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\resource\stone.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\resource\wood.xnb
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\buildings\bomb.xnb
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\interface.xnb
