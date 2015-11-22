@@ -54,6 +54,7 @@
     <Compile Include="colorGame\GameObject\TileResourse\Iron.cs" />
     <Compile Include="colorGame\GameObject\TileResourse\Stone.cs" />
     <Compile Include="colorGame\GameObject\TileResourse\Wood.cs" />
+    <Compile Include="colorGame\GameStates\EndOfGameState.cs" />
     <Compile Include="colorGame\GameStates\GamePlayState.cs" />
     <Compile Include="colorGame\GameStates\GameState.cs" />
     <Compile Include="colorGame\GameStates\MainMenuState.cs" />

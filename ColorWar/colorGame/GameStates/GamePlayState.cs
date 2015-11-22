@@ -21,7 +21,9 @@ namespace ColorWar.colorGame.GameStates {
 		}
 
 		public float getPer(int size) {
-			return (1000 * count / size)/10f;
+			if(size!=0)
+				return (1000 * count / size)/10f;
+			return 0;
 		}
 
 	}
@@ -92,7 +94,17 @@ namespace ColorWar.colorGame.GameStates {
 			ResGen.update(delta);
 			redPlayer.update(delta);
 			bluePlayer.update(delta);
-			if (DateTime.Now.Second - startTime.Second == 0 && DateTime.Now.Minute - startTime.Minute == time) {  }
+
+			KeyboardState keyboard = Keyboard.GetState();
+			Keys[] pressed = keyboard.GetPressedKeys();
+			foreach (Keys key in pressed)
+				if (key == Keys.Escape)
+					game.enterState(GameType.MainMenu);
+
+			if (DateTime.Now.Second - startTime.Second == 0 && DateTime.Now.Minute - startTime.Minute == time) {
+				EndOfGameState.redWin = (redCounter.getPer(tileCount) > blueCounter.getPer(tileCount));
+				game.enterState(GameType.EndOfGame);
+			}
 		}
 
 		bool[,] used = new bool[size, size];

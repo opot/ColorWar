@@ -12,7 +12,7 @@ using ColorWar.colorGame.GameObject.TileResourse;
 
 namespace ColorWar.colorGame.GameObject {
 	public enum TileType {
-		Wood = 0, Iron = 1, Stone = 2, Gold = 3, Door = 4, Bomb = 5
+		Wood = 0, Iron = 2, Stone = 1, Gold = 3, Door = 4, Bomb = 5
 	}
 	abstract class TileObject {
 

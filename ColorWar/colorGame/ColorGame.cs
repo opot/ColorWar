@@ -7,7 +7,7 @@ using ColorWar.colorGame.GameStates;
 
 namespace ColorWar.colorGame {
 	public enum GameType {
-		MainMenu = 0, Game = 1
+		MainMenu = 0, Game = 1, EndOfGame = 2
 	}
 
 	public sealed class ColorGame : Game {
@@ -32,11 +32,12 @@ namespace ColorWar.colorGame {
 
 			graphics.PreferredBackBufferHeight = HEIGHT;
 			graphics.PreferredBackBufferWidth = WIDTH;
-			graphics.ToggleFullScreen();
+			//graphics.ToggleFullScreen();
 			states = new List<GameState>();
 
 			states.Add(new MainMenuState());
 			states.Add(new GamePlayState());
+			states.Add(new EndOfGameState());
 
 			enterState(GameType.MainMenu);
 			base.Initialize();

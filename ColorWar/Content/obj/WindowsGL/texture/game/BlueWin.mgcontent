@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/resource/iron.png</SourceFile>
-  <SourceTime>2015-11-22T08:07:23.7577895+03:00</SourceTime>
-  <DestFile>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/bin/WindowsGL/texture/game/resource/iron.xnb</DestFile>
-  <DestTime>2015-11-22T18:36:10.3479426+03:00</DestTime>
+  <SourceFile>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/texture/game/BlueWin.png</SourceFile>
+  <SourceTime>2015-11-22T18:01:25.3803817+03:00</SourceTime>
+  <DestFile>C:/Users/Grigory/Documents/GitHub/ColorWar/ColorWar/Content/bin/WindowsGL/texture/game/BlueWin.xnb</DestFile>
+  <DestTime>2015-11-22T18:36:10.4956966+03:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2015-04-29T20:14:44+03:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
