@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 using ColorWar.colorGame.GameStates;
 using ColorWar.colorGame.GameObject.Controller;
+using ColorWar.colorGame.GameObject.TileBuilding;
 
 namespace ColorWar.colorGame.GameObject {
 	class Player {
@@ -19,7 +20,9 @@ namespace ColorWar.colorGame.GameObject {
 		float dx = 0, dy = 0;
 		float dSpeed = 416;
 
-		public int[] Resources = {0, 0, 0, 0};
+		public int[] Resources = {10, 10, 10, 10};
+		public bool isKey = false;
+
 		Counter myCounter;
 		Counter enemyCounter;
 	   Controller.Controller control;
@@ -50,17 +53,73 @@ namespace ColorWar.colorGame.GameObject {
 				sprite.AnimActive = false;
 				int ddx = 0, ddy = 0;
 				if (action == PlayerAction.Up)
-					if (y > 0 && GamePlayState.tiles[x, y - 1].canStep())
+					if (y > 0 && GamePlayState.tiles[x, y - 1].canStep(this))
 						ddy = -1;
 				if (action == PlayerAction.Down)
-						if (y < GamePlayState.size - 1 && GamePlayState.tiles[x, y + 1].canStep())
+						if (y < GamePlayState.size - 1 && GamePlayState.tiles[x, y + 1].canStep(this))
 							ddy = 1;
 				if (action == PlayerAction.Left)
-						if (x > 0 && GamePlayState.tiles[x - 1, y].canStep())
+						if (x > 0 && GamePlayState.tiles[x - 1, y].canStep(this))
 							ddx = -1;
 				if (action == PlayerAction.Right)
-						if (x < GamePlayState.size - 1 && GamePlayState.tiles[x + 1, y].canStep())
+						if (x < GamePlayState.size - 1 && GamePlayState.tiles[x + 1, y].canStep(this))
 							ddx = 1;
+
+				if(action == PlayerAction.BuidWall) {
+					bool canBuy = true;
+					for (int i = 0; i < 4; i++)
+						if (Resources[i] < TileObject.WallCost[i])
+							canBuy = false;
+
+					if (canBuy) {
+						for (int i = 0; i < 4; i++)
+							Resources[i] -= TileObject.WallCost[i];
+						GamePlayState.tiles[x, y] = new Tile(GamePlayState.wallTex, Color.White, 
+													x * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / GamePlayState.size + ColorGame.InterfaceWidth,
+													y * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / GamePlayState.size + ColorGame.InterfaceHeight, true);
+						GamePlayState.tileCount--;
+						myCounter.dec();
+					}
+				}
+
+				if (action == PlayerAction.BuildDoor) {
+					bool canBuy = true;
+					for (int i = 0; i < 4; i++)
+						if (Resources[i] < TileObject.DoorCost[i])
+							canBuy = false;
+
+					if (canBuy) {
+						if(GamePlayState.tiles[x, y].tryToPlace(new Door(GamePlayState.content, this)))
+							for (int i = 0; i < 4; i++)
+								Resources[i] -= TileObject.DoorCost[i];
+                    }
+				}
+
+				if (action == PlayerAction.BuildBomb) {
+					bool canBuy = true;
+					for (int i = 0; i < 4; i++)
+						if (Resources[i] < TileObject.BombCost[i])
+							canBuy = false;
+
+					if (canBuy) {
+						if (GamePlayState.tiles[x, y].tryToPlace(new Bomb(GamePlayState.content)))
+							for (int i = 0; i < 4; i++)
+								Resources[i] -= TileObject.BombCost[i];
+					}
+				}
+
+				if (action == PlayerAction.Key) {
+					bool canBuy = true;
+					for (int i = 0; i < 4; i++)
+						if (Resources[i] < TileObject.KeyCost[i])
+							canBuy = false;
+
+					if (canBuy && !isKey) {
+						isKey = true;
+						for (int i = 0; i < 4; i++)
+							Resources[i] -= TileObject.KeyCost[i];
+					}
+				}
 
 				GamePlayState.tiles[x, y].setPlayerHere(false);
 				x += ddx;

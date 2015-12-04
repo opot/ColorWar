@@ -2,7 +2,6 @@ C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\ColorWar
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\ColorWar.pdb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\MonoGame.Framework.dll
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\OpenTK.dll
-C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.csprojResolveAssemblyReference.cache
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.exe
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.pdb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\menu\back.xnb
@@ -21,3 +20,4 @@ C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\interface.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\BlueWin.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\RedWin.xnb
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.csprojResolveAssemblyReference.cache

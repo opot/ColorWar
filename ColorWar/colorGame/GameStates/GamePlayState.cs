@@ -6,6 +6,7 @@ using ColorWar.colorGame;
 using ColorWar.colorGame.GameObject;
 using ColorWar.colorGame.GameObject.Controller;
 using System;
+using Microsoft.Xna.Framework.Content;
 
 namespace ColorWar.colorGame.GameStates {
 
@@ -32,19 +33,22 @@ namespace ColorWar.colorGame.GameStates {
 
 		public static Tile[,] tiles;
 		private Counter redCounter, blueCounter;
-		public int tileCount;
+		public static int tileCount;
 
 		public static int size = 25;
 		public static int time = 3;
 
-		Texture2D wallTex, floorTex, redPlayerTex, bluePlayerTex;
+		public static Texture2D wallTex, floorTex, redPlayerTex, bluePlayerTex;
 		Texture2D interTex;
+		public static ContentManager content;
 		SpriteFont font;
 
 		Player redPlayer, bluePlayer;
 		ResourceGenerator ResGen;
 		GameInterface gameInterface;
 		DateTime startTime;
+
+
 
 		public override void init(ColorGame game) {
 			floorTex = game.Content.Load<Texture2D>("texture/game/floor");
@@ -54,6 +58,7 @@ namespace ColorWar.colorGame.GameStates {
 			interTex = game.Content.Load<Texture2D>("texture/game/interface");
 			font = game.Content.Load<SpriteFont>("Font/SpriteFont");
 			ResGen = new ResourceGenerator(game.Content);
+			content = game.Content;
         }
 
 		public override void enter() {
@@ -64,12 +69,15 @@ namespace ColorWar.colorGame.GameStates {
 			for (int i = 0; i < size; i++)
 				for (int j = 0; j < size; j++)
 					if(maze[i][j])
-						tiles[i, j] = new Tile(floorTex, Color.Gray, i*(ColorGame.HEIGHT - ColorGame.InterfaceHeight)/size + ColorGame.InterfaceWidth, 
-																							j* (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceHeight, false);
+						tiles[i, j] = new Tile(floorTex, Color.Gray,
+										i*(ColorGame.HEIGHT - ColorGame.InterfaceHeight)/size + ColorGame.InterfaceWidth, 
+										j* (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceHeight, false);
 					else
-						tiles[i, j] = new Tile(wallTex, Color.White, i * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceWidth,
-																							j * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceHeight, true);
+						tiles[i, j] = new Tile(wallTex, Color.White, 
+										i * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceWidth,
+										j * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceHeight, true);
 			tileCount = 0;
+			used = new bool[size, size]; 
 			dfs(0, 0);
 			redCounter = new Counter();
 			blueCounter = new Counter();

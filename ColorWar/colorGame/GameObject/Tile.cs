@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using ColorWar.colorGame;
 using ColorWar.colorGame.GameObject;
+using ColorWar.colorGame.GameObject.TileBuilding;
 using ColorWar.colorGame.GameObject.Controller;
 
 namespace ColorWar.colorGame.GameObject {
@@ -56,16 +57,25 @@ namespace ColorWar.colorGame.GameObject {
 		}
 
 		public bool tryToPlace(TileObject here) {
-			if(this.here == null && !playerHere && !isWall) {
+			if (here == null) return true;
+			if(this.here == null && (!playerHere || (here.type == TileType.Door) || (here.type == TileType.Bomb)) && !isWall) {
 				this.here = here;
 				return true;
 			}
 			return false;
 		}
 
-		public bool canStep() {
-			return !isWall && !playerHere;
+		public TileObject getHere() {
+			return here;
 		}
+
+		public bool canStep(Player player) {
+			if(here == null)
+				return !isWall && !playerHere;
+			if ((here as Door) != null)
+				return ((Door)here).canStep(player) && !playerHere;
+			return !playerHere;
+        }
 
 	}
 }

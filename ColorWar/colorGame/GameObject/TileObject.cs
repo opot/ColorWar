@@ -12,13 +12,19 @@ using ColorWar.colorGame.GameObject.TileResourse;
 
 namespace ColorWar.colorGame.GameObject {
 	public enum TileType {
-		Wood = 0, Iron = 2, Stone = 1, Gold = 3, Door = 4, Bomb = 5
+		Wood = 0, Stone = 1, Iron = 2, Gold = 3, Door = 4, Bomb = 5
 	}
+
 	abstract class TileObject {
 
 		public TileType type;
 		protected Texture2D texture;
 		private static Random rand = new Random();
+
+		public static int[] WallCost = { 0, 4, 1, 0 };
+		public static int[] BombCost = { 1, 0, 0, 4 };
+		public static int[] DoorCost = { 3, 0, 2, 0 };
+		public static int[] KeyCost = { 0, 0, 0, 5 };
 
 		public TileObject(ContentManager content, TileType type) {
 			this.type = type;

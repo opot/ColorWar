@@ -14,11 +14,20 @@ namespace ColorWar.colorGame.GameObject.TileBuilding {
 		private Player owner;
 
 		public Door(ContentManager content,Player owner) : base(content, TileType.Door) {
-			texture = content.Load<Texture2D>("texture/game/building/door");
+			texture = content.Load<Texture2D>("texture/game/buildings/door");
+			this.owner = owner;
 		}
 
 		public bool canStep(Player player)  {
-			return player == owner;
+			if (player != owner) {
+				if (player.isKey) {
+					player.isKey = false;
+					this.changeOwner(player);
+					return true;
+				}
+				return false;
+            }
+			return true;
 		}
 
 		public void changeOwner(Player player) {
