@@ -20,33 +20,36 @@ namespace ColorWar.colorGame.GameObject.TileBuilding {
 			this.y = y;
 		}
 
-		public bool update(float delta) {
+		public void update(float delta) {
 			time -= delta;
 			if(time <= 0) {
 				Tile[,] tiles = GamePlayState.tiles;
 				if (x - 1 >= 0) {
-					Tile buf = tiles[x - 1, y];
 					tiles[x - 1, y] = getFloor(x - 1, y);
-					tiles[x - 1, y].tryToPlace(buf.getHere() as Bomb);
+					tiles[x - 1, y].tryToPlace(getFire(x - 1, y));
 				}
 				if (x + 1 < GamePlayState.size) {
-					Tile buf = tiles[x + 1, y];
 					tiles[x + 1, y] = getFloor(x + 1, y);
-					tiles[x + 1, y].tryToPlace(buf.getHere() as Bomb);
+					tiles[x + 1, y].tryToPlace(getFire(x + 1, y));
 				}
 				if (y - 1 >= 0) {
-					Tile buf = tiles[x - 1, y];
-					tiles[x, y - 1] = getFloor(x y - 1);
-					tiles[x, y - 1].tryToPlace(buf.getHere() as Bomb);
+					tiles[x, y - 1] = getFloor(x, y - 1);
+					tiles[x, y - 1].tryToPlace(getFire(x, y - 1));
 				}
 				if (y + 1 < GamePlayState.size) {
-					Tile buf = tiles[x + 1, y];
 					tiles[x, y + 1] = getFloor(x, y + 1);
-					tiles[x, y + 1].tryToPlace(buf.getHere() as Bomb);
+					tiles[x, y + 1].tryToPlace(getFire(x, y + 1));
 				}
-				return true;
+
+				tiles[x, y] = getFloor(x, y);
+				tiles[x, y].tryToPlace(getFire(x, y));
+				GamePlayState.countPlayableTiles();
+
 			}
-			return false;
+		}
+
+		private Fire getFire(int x, int y) {
+			return new Fire(x, y);
 		}
 
 		private Tile getFloor(int x, int y) {

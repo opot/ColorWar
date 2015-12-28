@@ -30,9 +30,18 @@ namespace ColorWar.colorGame.GameObject {
 
 		public void draw(SpriteBatch batch) {
 			batch.Draw(texture, rect, color);
-			if (here != null)
+			if (here != null) 
 				here.draw(batch, rect);
 		}
+
+		public void update(float delta) {
+			if (here as Bomb != null)
+				((Bomb)here).update(delta);
+
+			if (here as Fire != null)
+				if (((Fire)here).update(delta))
+					here = null;
+        }
 
 		public void changeColor(Color color) {
 			this.color = color;

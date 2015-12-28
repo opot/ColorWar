@@ -20,4 +20,8 @@ C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\interface.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\BlueWin.xnb
 C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\RedWin.xnb
-C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.csprojResolveAssemblyReference.cache
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\Content\texture\game\buildings\fire.xnb
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\ColorWar.exe.manifest
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\bin\WindowsGL\Debug\ColorWar.application
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.exe.manifest
+C:\Users\Grigory\Documents\GitHub\ColorWar\ColorWar\obj\x86\Debug\ColorWar.application

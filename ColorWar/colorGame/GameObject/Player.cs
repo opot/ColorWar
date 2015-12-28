@@ -102,7 +102,7 @@ namespace ColorWar.colorGame.GameObject {
 							canBuy = false;
 
 					if (canBuy) {
-						if (GamePlayState.tiles[x, y].tryToPlace(new Bomb(GamePlayState.content)))
+						if (GamePlayState.tiles[x, y].tryToPlace(new Bomb(GamePlayState.content, x, y)))
 							for (int i = 0; i < 4; i++)
 								Resources[i] -= TileObject.BombCost[i];
 					}

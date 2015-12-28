@@ -7,6 +7,7 @@ using ColorWar.colorGame.GameObject;
 using ColorWar.colorGame.GameObject.Controller;
 using System;
 using Microsoft.Xna.Framework.Content;
+using ColorWar.colorGame.GameObject.TileBuilding;
 
 namespace ColorWar.colorGame.GameStates {
 
@@ -56,6 +57,7 @@ namespace ColorWar.colorGame.GameStates {
 			redPlayerTex = game.Content.Load<Texture2D>("texture/game/RedPlayer");
 			bluePlayerTex = game.Content.Load<Texture2D>("texture/game/BluePlayer");
 			interTex = game.Content.Load<Texture2D>("texture/game/interface");
+			Fire.setTexture(game.Content.Load<Texture2D>("texture/game/buildings/fire"));
 			font = game.Content.Load<SpriteFont>("Font/SpriteFont");
 			ResGen = new ResourceGenerator(game.Content);
 			content = game.Content;
@@ -77,8 +79,7 @@ namespace ColorWar.colorGame.GameStates {
 										i * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceWidth,
 										j * (ColorGame.HEIGHT - ColorGame.InterfaceHeight) / size + ColorGame.InterfaceHeight, true);
 			tileCount = 0;
-			used = new bool[size, size]; 
-			dfs(0, 0);
+			countPlayableTiles();
 			redCounter = new Counter();
 			blueCounter = new Counter();
 			redPlayer = new Player(0, 0, redPlayerTex, new KeyBoardController(), new Color(190,0,0), redCounter, blueCounter);
@@ -103,6 +104,10 @@ namespace ColorWar.colorGame.GameStates {
 			redPlayer.update(delta);
 			bluePlayer.update(delta);
 
+			for (int i = 0; i < size; i++)
+				for (int j = 0; j < size; j++)
+					tiles[i, j].update(delta);
+
 			KeyboardState keyboard = Keyboard.GetState();
 			Keys[] pressed = keyboard.GetPressedKeys();
 			foreach (Keys key in pressed)
@@ -115,19 +120,22 @@ namespace ColorWar.colorGame.GameStates {
 			}
 		}
 
-		bool[,] used = new bool[size, size];
-		private void dfs(int x, int y) {
+		public static void countPlayableTiles() {
+			bool[,] used = new bool[size, size];
+			dfs(0, 0, used);
+		}
+		private static void dfs(int x, int y, bool[,] used) {
 			if (!tiles[x, y].isWall && !used[x,y]) {
 				tileCount++;
 				used[x, y] = true;
 				if (x > 0)
-					dfs(x - 1, y);
+					dfs(x - 1, y, used);
 				if (y > 0)
-					dfs(x, y - 1);
+					dfs(x, y - 1, used);
 				if (x < size - 1)
-					dfs(x + 1, y);
+					dfs(x + 1, y, used);
 				if (y < size - 1)
-					dfs(x, y + 1);
+					dfs(x, y + 1, used);
 			}
 		}
 
